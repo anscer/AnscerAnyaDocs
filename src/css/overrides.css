@@ -1,0 +1,137 @@
+html[data-theme="dark"] {
+  --ifm-toc-border-color: #8b9ab0;
+  --ifm-color-emphasis-200: #ffffff51;
+  --ifm-navbar-background-color: #000f20ab;
+}
+html[data-theme="light"] {
+  --ifm-toc-border-color: #8b9ab0;
+  --ifm-color-emphasis-200: #ced9ecb3;
+  --ifm-navbar-background-color: #f1fbffab;
+}
+body {
+  height: auto !important;
+}
+.table-of-contents__link--active {
+  font-weight: bold;
+  position: relative;
+}
+.table-of-contents__link--active::before {
+  content: "👉";
+  left: -16px;
+  position: absolute;
+  /* content: "";
+  left: 0;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: var(--ifm-color-primary); */
+}
+.menu__list .menu__list {
+  position: relative;
+}
+.menu__list .menu__list::before {
+  content: "";
+  width: 1px;
+  height: 100%;
+  left: 10px;
+  background: var(--ifm-toc-border-color);
+  position: absolute;
+}
+.menu__caret:hover {
+  background: none;
+}
+.menu__caret::before,
+.menu__link--sublist-caret:after {
+  background-size: 100%;
+}
+
+.menu__list-item-collapsible,
+.menu__link,
+.menu__caret {
+  border-radius: 0;
+}
+.footer {
+  background-color: var(--ifm-navbar-background-color);
+}
+
+html[data-theme="dark"] body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  position: fixed;
+  background-image: url("/img/darkBackground.jpeg");
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+html[data-theme="light"] body::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  position: fixed;
+  background-image: linear-gradient(
+    90deg,
+    #fefff3 25%,
+    #f5f0ff 50%,
+    #e6fffc 80%
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+.card {
+  background: hsla(0, 0%, 100%, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px;
+  /* border: 0 !important; */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  --ifm-link-color: var(--ifm-color-emphasis-800);
+  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+}
+.card::before {
+  content: "";
+  background-image: url("/img/glassmorphism.jpeg");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.2;
+  filter: sepia(0.5);
+}
+.navbar {
+  backdrop-filter: blur(5px);
+}
+.navbar::before {
+  content: "";
+  background-image: url("/img/glassmorphism.jpeg");
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  background-position: top;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.1;
+  mix-blend-mode: darken;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -2,11 +2,13 @@ html[data-theme="dark"] {
   --ifm-toc-border-color: #8b9ab0;
   --ifm-color-emphasis-200: #ffffff51;
   --ifm-navbar-background-color: #000f20ab;
+  --ifm-navbar-sidebar-background-color: #000f20;
 }
 html[data-theme="light"] {
   --ifm-toc-border-color: #8b9ab0;
   --ifm-color-emphasis-200: #ced9ecb3;
   --ifm-navbar-background-color: #f1fbffab;
+  --ifm-navbar-sidebar-background-color: #f1fbff;
 }
 body {
   height: auto !important;
@@ -107,23 +109,30 @@ html[data-theme="light"] body::after {
   opacity: 0.2;
   filter: sepia(0.5);
 }
-.navbar {
-  backdrop-filter: blur(5px);
+
+.navbar-sidebar {
+  background-color: var(--ifm-navbar-sidebar-background-color);
 }
-.navbar::before {
-  content: "";
-  background-image: url("/img/glassmorphism.jpeg");
-  position: absolute;
-  background-size: cover;
-  width: 100%;
-  background-position: top;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  opacity: 0.1;
-  mix-blend-mode: darken;
+@media only screen and (min-device-width: 997px) {
+  .navbar {
+    backdrop-filter: blur(5px);
+  }
+  .navbar::before {
+    content: "";
+    background-image: url("/img/glassmorphism.jpeg");
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    background-position: top;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.1;
+    mix-blend-mode: darken;
+  }
 }
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

@@ -45,7 +45,8 @@
     "sass": "^1.64.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.4.1"
+    "@docusaurus/module-type-aliases": "^2.4.1",
+    "dotenv": "^16.3.1"
   },
   "browserslist": {
     "production": [

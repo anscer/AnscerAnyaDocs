@@ -113,30 +113,15 @@ html[data-theme="light"] body::after {
 
 .navbar-sidebar {
   background-color: var(--ifm-navbar-sidebar-background-color);
+  height: 100vh;
 }
-// @media only screen and (max-width: 996px) {
-//   .navbar {
-//     backdrop-filter: none;
-//   }
-//   .navbar::before {
-//     content: "";
-//     background-image: url("/img/glassmorphism.jpeg");
-//     position: absolute;
-//     background-size: cover;
-//     width: 100%;
-//     background-position: top;
-//     height: 100%;
-//     top: 0;
-//     left: 0;
-//     z-index: -1;
-//     opacity: 0.1;
-//     mix-blend-mode: darken;
-//   }
-// }
+.navbar {
+  backdrop-filter: blur(5px);
+}
+.navbar-sidebar__backdrop {
+  height: 100vh;
+}
 @media only screen and (min-width: 997px) {
-  .navbar {
-    backdrop-filter: blur(5px);
-  }
   .navbar::before {
     content: "";
     background-image: url("/img/glassmorphism.jpeg");

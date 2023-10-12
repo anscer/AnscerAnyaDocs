@@ -1,24 +1,16 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
-
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const redirects = require("./redirects");
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "ANSCER ROBOTICS - ANSCER ANYA Documentation",
   tagline:
     "ANSCER ANYA is a software solution designed to manage and automate material transport in warehouses and industries for ANSCER ROBOTS.",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://anscer-anya-docs.web.app",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: "anscerrobotics", // Usually your GitHub org/user name.
   projectName: "AnscerAnya", // Usually your repo name.
 
@@ -32,19 +24,7 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-  // i18n: {
-  //   defaultLocale: "en",
-  //   locales: ["en", "fr", "fa"],
-  //   localeConfigs: {
-  //     en: {
-  //       htmlLang: "en-GB",
-  //     },
-  //     // You can omit a locale (e.g. fr) if you don't need to override the defaults
-  //     fa: {
-  //       direction: "rtl",
-  //     },
-  //   },
-  // },
+  // staticDirectories: ["static", "static/assets/docs/images", "static/assets"],
 
   presets: [
     [
@@ -54,32 +34,123 @@ const config = {
         docs: {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+          lastVersion: "current",
+          includeCurrentVersion: true,
+          versions: {
+            current: {
+              label: "latest",
+            },
+          },
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        sitemap: {
+          changefreq: "weekly",
+          priority: 0.5,
+          ignorePatterns: ["/tags/**"],
+          filename: "sitemap.xml",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
   ],
-
+  plugins: [
+    "docusaurus-plugin-sass",
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "api",
+        path: "api/ansceranya",
+        routeBasePath: "api",
+        docItemComponent: "@theme/ApiItem",
+        lastVersion: "current",
+        includeCurrentVersion: true,
+        versions: {
+          current: {
+            label: "latest",
+          },
+        },
+        sidebarPath: require.resolve("./apisidebar.js"),
+        async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
+          const { docs } = args;
+          const filteredDocs = docs.filter((doc) => {
+            return true;
+          });
+          const sidebarItems = await defaultSidebarItemsGenerator({
+            ...args,
+            docs: filteredDocs,
+          });
+          // This is an override to the default sidebar items generator.
+          // This injects the "Privacy Settings" link at the bottom of the sidebar.
+          sidebarItems.push({
+            type: "html",
+            value:
+              '<a class="menu__link" href="#" onClick="UC_UI.showSecondLayer();"><svg style="margin-right: 16px;" focusable="false" data-icon="eye" class="svg-inline--fa fa-eye" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill="#FFFFFF" d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>Privacy Settings</a>',
+          });
+          return sidebarItems;
+        },
+      },
+    ],
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "apidocs",
+        docsPluginId: "api",
+        config: {
+          ansceranya: {
+            specPath: "api/ansceranya/v1/api.json",
+            // specPath: "./AnscerAnyaAPI.yaml",
+            outputDir: "api/ansceranya/v1",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+            template: "api.mustache", // Customize API MDX with mustache template
+            hideSendButton: false,
+          },
+        },
+      },
+    ],
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 50,
+        max: 1035,
+        steps: 4,
+        disableInDev: false,
+      },
+    ],
+    [
+      require.resolve("docusaurus-plugin-image-zoom"),
+      {
+        id: "docusaurus-plugin-image-zoom",
+      },
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [...redirects],
+      },
+    ],
+  ],
+  themes: ["docusaurus-theme-openapi-docs"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       docs: {
         versionPersistence: "localStorage",
+        sidebar: {
+          hideable: false,
+          autoCollapseCategories: true,
+        },
+      },
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
       },
       image: "img/AllRobots.jpeg",
       navbar: {
@@ -97,6 +168,12 @@ const config = {
             label: "Manual",
           },
           {
+            to: "/api",
+            sidebarId: "ansceranya",
+            label: "API",
+            position: "left",
+          },
+          {
             type: "docsVersionDropdown",
             position: "right",
           },
@@ -105,12 +182,59 @@ const config = {
             position: "right",
           },
         ],
+        hideOnScroll: true,
       },
-      tableOfContents: {
-        minHeadingLevel: 2,
-        maxHeadingLevel: 4,
-      },
-
+      languageTabs: [
+        {
+          highlight: "javascript",
+          language: "nodejs",
+          logoClass: "nodejs",
+          variant: "axios",
+        },
+        {
+          highlight: "python",
+          language: "python",
+          logoClass: "python",
+          variant: "requests",
+        },
+        {
+          highlight: "bash",
+          language: "curl",
+          logoClass: "bash",
+        },
+        {
+          highlight: "go",
+          language: "go",
+          logoClass: "go",
+        },
+        {
+          highlight: "ruby",
+          language: "ruby",
+          logoClass: "ruby",
+        },
+        {
+          highlight: "csharp",
+          language: "csharp",
+          logoClass: "csharp",
+          variant: "httpclient",
+        },
+        {
+          highlight: "php",
+          language: "php",
+          logoClass: "php",
+        },
+        {
+          highlight: "java",
+          language: "java",
+          logoClass: "java",
+          variant: "unirest",
+        },
+        {
+          highlight: "powershell",
+          language: "powershell",
+          logoClass: "powershell",
+        },
+      ],
       footer: {
         style: "light",
         links: [
@@ -156,11 +280,49 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} <a href="https://anscer.com">Anscer Robotics</a>`,
       },
+      zoom: {
+        selector: ".markdown-image",
+        background: {
+          light: "rgb(255, 255, 255)",
+          dark: "rgb(50, 50, 50)",
+        },
+        config: {},
+      },
       prism: {
+        defaultLanguage: "json",
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: [
+          "hcl",
+          "bash",
+          "json",
+          "powershell",
+          "go",
+          "javascript",
+          "rust",
+        ],
+        magicComments: [
+          {
+            className: "theme-code-block-highlighted-line",
+            line: "highlight-next-line",
+            block: {
+              start: "highlight-start",
+              end: "highlight-end",
+            },
+          },
+          {
+            className: "code-block-error-line",
+            line: "This will error",
+          },
+        ],
       },
     }),
+  // stylesheets: [
+  //   {
+  //     href: "https://use.fontawesome.com/releases/v5.11.0/css/all.css",
+  //     type: "text/css",
+  //   },
+  // ],
 };
 
 module.exports = config;

@@ -28,7 +28,8 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-
-@import url("./overrides.css");
-@import url("./lottieIcons.css");
-@import url("./joystick.css");
+@import "./api.scss";
+@import "./overrides.scss";
+@import "./lottieIcons.css";
+@import "./joystick.css";
+@import "./CodeTabsLogo";

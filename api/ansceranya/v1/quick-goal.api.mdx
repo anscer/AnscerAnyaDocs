@@ -1,0 +1,57 @@
+---
+id: quick-goal
+title: "Quick Goal"
+description: "The Quick Goal request allows you to send a quick goal to the robot. This request takes in the goal's coordinates as a parameter, and will send the Robot to the desired coordinates."
+sidebar_label: "Quick Goal"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVV8tu4zYU/RWCXXSj2E4nBQqvmhmkRVC0SeMERTHNgpZoixOK1PDhRwT/+5xLybbiGDNG0EWbh22Rl/fJc+51w20tnQjKmuuCj/nnqPKnX63QPOOF9LlTNe1h576U7E/aZbTNnPwcpQ9MaG2Xnq1tZMEyL03BBEta2JzksBhw0tmpDQN2Xyq/OxrEk/RMmSRAwt97llvrCmVEwI7AH6uFE5UM0mVMQPdSad1aoUN3pHVrAu4qJ4u+igGi6Ky9t8Waj5v0SGJ8HFyUGc+tCdIE2hJ1rVWecjH85Cnohvu8lJWgT2FdS6TBTj/JPHR6W0UfeW29SmnKuHUK6pIS/pjx2lF+g5KedOzkvqFvhec1/p9fq1j1zppYTaWD3My6SiAGXtg41ZJv6Phpcs8nyW02LyM72f+ML/8rMZArp8UK0aCCJrHaKhMm7SVod5z0tTW+jeSH0YjeXiKlhxJPV+ubl0yuRFWTuYZX0nsxl0e0tNYvjhlsYQBkGXoz7DICEr/bQmaEDSSeYgRGIBGiM3vYkKCxlY2eVRAfvNHVf8/+Nsjz10E+GBFDiUv4LIu3Ogp7Jc50svDgSZrkNO7nQhWkeOvBu9ce/GLdVBWFNG82n+f43PJV4kFvo8slZW6219168OOxQl/DpjO4ERPpFtKxK+ese6MzR3UN2K2WwksW3JqJuUAxNYjUtV4RLsTcE8ITnxOywc2lLRJSPF31WoQST8MkMEyNYN62E5/s0OmGR6chVIZQj4fDpsTRzbiprQuboajVsCFBRLA52oVQrCLmqYKXt9es1QvJhXBKAMIJmaQzxQ6gk8Pa5kKnxUfSORNRE+j3y8csXf4x+XB1h7e/L3umGMkzg7Y0IFYht/uWfhpB18XFu5eG0urJFkhnUt4loq9/cf5SM55P0dxpSpV8pGrk0amwTuW4rNVvck3owONjfztRX5vRvtCORkVahAOUDjyvzgilZwlZWFXkTSlFgQLR9aEbebdvyFf7i9lvjegPo8T+o8Tto9fN51AicfuILCgzs8m/jsAP0vAqVf19RQOHt7OwFE7ig47pktFgMTeYLADcShjAJ40iCNSic0hGL7h5mHWcMJ5KRyRIOkowGw0ykFamiD4gioT1bXXubt7f3E+6uQh/fVMdJzHr5sKo5xS7H0KPwnIU2mMYCiWbRUxEC+XVVGkULBkjPnBWM0t3CZSnDgxmTBogRZk57VZpcgtOigpLsjtwJKrdqOgzkBcwSLEbuAKSmNpuQlMVOS6TbQyHTM5mKkfx8jWF2Usrwi3VvNRr5oFBAm7rO9JkK8SLhawdL8nPF1lIFCqURiLVdv6Dy76WuYI1ZqQs/ID9RfnpFTg70JILg5iCgrWvRI1wiLa7OlZitZPfMdGCEm9nx1JNvWIHYn4+GA1GHWGLPNFGBxyC6CTWiUyyHj96EORyuRzAmxw8nNtq+F13+sFDEoOJIlnfnv15L5cAR6yMGvUM7eeKQyw0+z7yv532O1oKchWGtUb/IhJN2Wy61rTtXRnfNycQXtsvPvKmmaL/PTi92dAyfHfEkY/79pIoMtuyGtHnExhwzD+0yTu7JxdIXMeWIQ8a8ibbnqB5oA5fle132NubyT2Ep903GZqYsOrEkqZvvI75P/il7yCpoIm003rDtTDz2Pb9Vi/9fAHLCNWu
+sidebar_class_name: "post api-method"
+info_path: api/v1/anscer-anya-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Quick Goal</h1>
+
+<MethodEndpoint method={"post"} path={"/robot/quickgoal"}></MethodEndpoint>
+
+<SecuritySchemes infoPath={"api/v1/anscer-anya-api"}></SecuritySchemes>
+
+
+
+The Quick Goal request allows you to send a quick goal to the robot. This request takes in the goal's coordinates as a parameter, and will send the Robot to the desired coordinates.
+
+## Request
+
+<MimeTabs className={"openapi-tabs__mime"}><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} className={"openapi-markdown__details mime"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-mime"}><h3 className={"openapi-markdown__details-summary-header-body"}>Body</h3><strong className={"openapi-schema__required"}>required</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>position</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"x"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"y"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"z"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>orientation</strong><span className={"openapi-schema__name"}> object</span><span className={"openapi-schema__divider"}></span><span className={"openapi-schema__required"}>required</span></span></summary><div style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"x"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"y"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"z"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem><SchemaItem collapsible={false} name={"w"} required={true} schemaName={"double"} qualifierMessage={undefined} schema={{"type":"number","format":"double"}}></SchemaItem></div></details></SchemaItem></ul></details></TabItem></MimeTabs><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Quick Goal sent
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Quick Goal sent\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Quick Goal sent\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Robot is not in Auto Mode, to perform this turn Robot to Autonomous mode.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Robot is not in Auto Mode, to perform this turn Robot to Autonomous mode.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Robot is not in Auto Mode, to perform this turn Robot to Autonomous mode.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Authentication token not provided.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Authentication token not provided.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Access to this resource is forbidden.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Access to this resource is forbidden.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Internal Server Error. Please try again later.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Internal Server Error. Please try again later.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>

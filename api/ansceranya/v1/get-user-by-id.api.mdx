@@ -1,0 +1,65 @@
+---
+id: get-user-by-id
+title: "Get a user by ID"
+description: "The Get User request allows you to retrieve information about a specific user in ANSCER ANYA. This request takes in the user's unique ID as a parameter, and returns a JSON object containing information about the user, including their name, email, and role."
+sidebar_label: "Get a user by ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21v2zYQ/iuE9mEboNhumwCDP83ZuiLb0BZxgmEogoGWaIstRap8seMa/u97jqJtOVbTLsCAfRhQ1CJ5vHvuePfcZZOZRljupdFXZTbOFsLfOmEv11jlWSlcYWVDpzi7qQR7JTwjAWbFxyCcZ1wps3JsbQLzBrveSrEUTOq5sXXUy/jMBAgy14hCzmXBAimQmk1eT396eY2fPycDdlNJt9fq+QfhSMTDJol/61jQEofs6mfGHbQ13PJaeGFzxnVJloPVdPDr9M1rZmbvReFZYbTnUku96EG0053jrFChJCnsScs0NOdM1FyqpN0oMUBArHCN0U64bLzJno9G9HMcpBicUsCqcrhAAIT2JMebRskiAhi+dyS8yVxRwQp9+XUjcL3FjYuNpYfxsjX1lyw7Qg5B1gsItR5hJwQIbPOMgPcJ1lL/LvTCV9n4BVb8fre6GOFWdPQL1y6Orj2/uOhYb+9DkXSTwstlF8LMIHRc0ykFsc+K0KHOxu8QyKVQ5DX2eAnb+KX3ye7yzEtPl+P6GnocKSys4F6Ul+u+AJ7mbky7VWVYuofHRspFC18V78/G97EQPgzS9tiXaWWsJwWhKZ/ki+Iol3T5P+VQCvLEP6qEcJ95CRB9XtJprD+SOHjHVmCApL8Tu3/NVDfGRw5TsWODts5Hz3rIQPPgERD5SZSDL7OBuOd109ZILZzjC7IxgQbcSbIg2Q9CM208wwMvZUmKdwhenCL4xdiZLEuhn2y+KPBN3O5bgnYm2AIE79j8oHuH4PwUwfXuBmGem6CfHIk+Ta3hiz4mvoIFq7liU2GXeMmX1hr7RNO9ugbsLajNIVvsmvEF+gwyBXItKkoTvnBEbJRIjlhs37Noe5OKLx7HdisJdsNBsNRpPgZpkW9jb4PITzvFoVRPkxk90sz3/a3bmPOUx8xQl1LAkm0BDKAqk/o/cQdhGGfDCHy4aQFuceCi+y36YMEPWeV9Mx4ON5VxfjveNKj+7ZA3crghQUDa9pYbkrcMRczoydsr1uqF5JJbyWeqJS3SGZ8kNQhlCq7i5h3pnPOgqLAP232WOkNGxxQj+djnBxRCgt219MMIus7PXxwbirtfbYF0RuUpEF39y2fHmrH+Gs1JU0ywO3qNIljp1/E5Jo38TayJLbC86x5PKXXaiHaF9pnE42a2awbZ/Rmx1llkml1WVoKXketoPTfxdiLBByBPHOmeSxrQnJn7FbcCHyrEFMAFudDUwAyruUbNRSoGDFNTstJ/yAuFSuPaUWBpNiQdlUFyuigtdRmoKERkpl3srt9cvrmZpvES/7qmEoOiFhZcy0+RB9wQeiS2A1eOraSv2DwoxZbSyZlUCGc0RiSCeYYZeul2aDwyiOlRI4/TSFmTNWATvMaWSBd6vNoP4y5HyaJCyHcNKGCWmUmjrqwJuIi2MX4zMcdQLYUu1uRmJ6xwt5KLSq2ZQ4VQWbXYESZTw19s5O0ATziPohAJH/0dgZS+ZX+CvB/htRClG7A/KD6dB84faCm4hk9oqeiAn/ca7lCTSe+IMXMvv+eJJQW+5bSHoaZ2si+x7NlgNBglludFLOqU1lRA09DEUs877OVAX6vVagA0Bci7MPXwm3T7lkb4NAllrr3740EulkMDIsEbdQzR30i8Zd7ZGlz8sCI2hxb0/99U+Y6FvLj3w0ZBcxzpbBw+20a066B5Nk69EuzWNod32WYzQw++tWq7pW24Y4kQ7w69JNJjKR19o8fNUdjikSf57jq13u/ZP+6ln/FmR7R6HVucCrTC5wfQ7r7/b+8gmXiWELeHNH81vnPtZGY56t+vXt4gK/8GHFN6IQ==
+sidebar_class_name: "get api-method"
+info_path: api/v1/anscer-anya-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import TabItem from "@theme/TabItem";
+
+<h1 className={"openapi__heading"}>Get a user by ID</h1>
+
+<MethodEndpoint method={"get"} path={"/users/{userId}"}></MethodEndpoint>
+
+<SecuritySchemes infoPath={"api/v1/anscer-anya-api"}></SecuritySchemes>
+
+
+
+The Get User request allows you to retrieve information about a specific user in ANSCER ANYA. This request takes in the user's unique ID as a parameter, and returns a JSON object containing information about the user, including their name, email, and role.
+
+## Request
+
+<details style={{"marginBottom":"1rem"}} className={"openapi-markdown__details"} data-collapsed={false} open={true}><summary style={{}}><h3 className={"openapi-markdown__details-summary-header-params"}>Path Parameters</h3></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"userId","in":"path","required":true,"schema":{"type":"string"},"description":"The ID of the user to retrieve, update or delete"}}></ParamsItem></ul></div></details><div><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+User details
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><SchemaItem collapsible={false} name={"_id"} required={false} schemaName={"uuid"} qualifierMessage={undefined} schema={{"type":"string","format":"uuid"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 50 characters`"} schema={{"type":"string","minLength":3,"maxLength":50}}></SchemaItem><SchemaItem collapsible={false} name={"email"} required={false} schemaName={"email"} qualifierMessage={"**Possible values:** `>= 5 characters` and `<= 255 characters`"} schema={{"type":"string","minLength":5,"maxLength":255,"format":"email"}}></SchemaItem><SchemaItem collapsible={false} name={"isActive"} required={false} schemaName={"boolean"} qualifierMessage={undefined} schema={{"type":"boolean"}}></SchemaItem><SchemaItem collapsible={false} name={"role"} required={false} schemaName={"userRoles"} qualifierMessage={"**Possible values:** [`developer`, `admin`, `user`]"} schema={{"type":"string","enum":["developer","admin","user"],"title":"userRoles"}}></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>createdBy</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The user who created this user
+
+</div><SchemaItem collapsible={false} name={"_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"email"} required={false} schemaName={"email"} qualifierMessage={undefined} schema={{"type":"string","format":"email"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={true} className={"schemaItem"}><details style={{}} className={"openapi-markdown__details"}><summary style={{}}><span className={"openapi-schema__container"}><strong className={"openapi-schema__property"}>updatedBy</strong><span className={"openapi-schema__name"}> object</span></span></summary><div style={{"marginLeft":"1rem"}}><div style={{"marginTop":".5rem","marginBottom":".5rem"}}>
+
+The user who last updated this user
+
+</div><SchemaItem collapsible={false} name={"_id"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"name"} required={false} schemaName={"string"} qualifierMessage={undefined} schema={{"type":"string"}}></SchemaItem><SchemaItem collapsible={false} name={"email"} required={false} schemaName={"email"} qualifierMessage={undefined} schema={{"type":"string","format":"email"}}></SchemaItem></div></details></SchemaItem><SchemaItem collapsible={false} name={"createdAt"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The date and time this user was created"}}></SchemaItem><SchemaItem collapsible={false} name={"updatedAt"} required={false} schemaName={"date-time"} qualifierMessage={undefined} schema={{"type":"string","format":"date-time","description":"The date and time this user was last updated"}}></SchemaItem></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"_id\": \"3fa85f64-5717-4562-b3fc-2c963f66afa6\",\n  \"name\": \"string\",\n  \"email\": \"user@example.com\",\n  \"isActive\": true,\n  \"role\": \"developer\",\n  \"createdBy\": {\n    \"_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"user@example.com\"\n  },\n  \"updatedBy\": {\n    \"_id\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"user@example.com\"\n  },\n  \"createdAt\": \"2023-10-10T14:21:42.234Z\",\n  \"updatedAt\": \"2023-10-10T14:21:42.234Z\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"401"} value={"401"}><div>
+
+Unauthorized.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Authentication token not provided.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Authentication token not provided.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Access to this resource is forbidden.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Access to this resource is forbidden.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"404"} value={"404"}><div>
+
+Resource not found.
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Resource not found.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Resource not found.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"500"} value={"500"}><div>
+
+Internal Server Error
+
+</div><div><MimeTabs className={"openapi-tabs__mime"} schemaType={"response"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs className={"openapi-tabs__schema"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} className={"openapi-markdown__details response"} data-collapsed={false} open={true}><summary style={{}} className={"openapi-markdown__details-summary-response"}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}>any</ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{\n  \"message\": \"Internal Server Error. Please try again later.\"\n}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Internal Server Error. Please try again later.\"\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div></div>

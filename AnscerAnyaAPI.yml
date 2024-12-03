@@ -443,9 +443,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items:
-                  $ref: "#/components/schemas/ActiveMapAndData"
+                $ref: "#/components/schemas/ActiveMapAndData"
         "401":
           $ref: "#/components/responses/UnauthorizedError"
         "403":
@@ -902,6 +900,18 @@ paths:
       operationId: initiateMissionById
       summary: Initiate a mission by ID
       description: "The Initiate Mission request allows you to initiate a mission. This request takes in the mission's unique ID as a parameter, and will initiate the mission in the Robot."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - iteration
+              properties:
+                iteration:
+                  type: integer
+                  description: The iteration of the mission to initiate
       responses:
         "200":
           description: Mission initiated
@@ -1042,6 +1052,330 @@ paths:
           $ref: "#/components/responses/InternalServerError"
       tags:
         - Robot
+
+
+  /schedules:
+    summary: Schedules
+    get:
+      operationId: getSchedule
+      summary: Get all Schedules
+      description: "The Get Schedules request allows users to get all schedules."
+      responses:
+        "200":
+          description: Schedules fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Schedule"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Schedules
+    post:
+      operationId: createSchedule
+      description: "The Create Schedule request allows users to create a new schedule."
+      summary: Create a new schedule
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Schedule"
+      responses:
+        "200":
+          description: Schedule created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Schedule"
+        "400":
+          $ref: "#/components/responses/BadRequestValidation"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Schedules
+
+  /schedules/{scheduleId}:
+    parameters:
+      - name: scheduleId  
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the schedule to update or delete
+    get:
+      operationId: getScheduleById
+      summary: Get a schedule by ID
+      description: "The Get Schedule request allows users to get a schedule by its unique ID."
+      responses:
+        "200":
+          description: Schedule fetched
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Schedule"
+        "404":    
+          $ref: "#/components/responses/NotFound"    
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+    put:
+      operationId: updateSchedule
+      summary: Update a schedule
+      description: "The Update Schedule request allows users to update an existing schedule."
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Schedule"
+      responses:
+        "200":
+          description: Schedule updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Schedule" 
+        "404":    
+          $ref: "#/components/responses/NotFound"    
+        "400":
+          $ref: "#/components/responses/BadRequestValidation"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Schedules
+    delete:
+      operationId: deleteSchedule
+      summary: Delete a schedule
+      description: "The Delete Schedule request allows users to delete an existing schedule."
+      responses:
+        "200":
+          description: Schedule deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Schedule"
+        "404":    
+          $ref: "#/components/responses/NotFound"    
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Schedules
+
+  /schedules/toggleStatus/{scheduleId}:
+     parameters:
+      - name: scheduleId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the schedule to toggle the status
+     put:
+      operationId: toggleScheduleStatus
+      summary: Toggle Active status of a schedule
+      description: "The Toggle active request allows you to toggle the _isActive_ property of a schedule. This request takes in the schedule's unique ID as a parameter, and will toggle the _isActive_ property of the schedule."
+      responses:
+        "200":
+          description: Schedule updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Schedule"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Schedules
+  /logs:
+    summary: Logs
+    get:
+      operationId: getLogs
+      summary: Get all logs
+      description: "The Get Logs request allows users to get all logs." 
+      responses: 
+        "200":
+          description: Logs fetched
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Log"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Log
+    post:
+      operationId: createLog
+      summary: Create log
+      description: " The create log request, create logs by the robot"
+      responses: 
+        "200":
+          description: Logs created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Log"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Log
+  /logs/export:
+    get:
+      operationId: exportLogs
+      summary: Export logs
+      description: "To export all the logs created by the robot between "
+      responses: 
+        "200":
+          description: Logs fetched for export 
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Log"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Log
+  /missions/logs:
+    summary: Mission logs
+    get:
+      operationId: getAllMissionLogs
+      summary: Get all Mission logs
+      description: "To fetch all the mission logs"
+      responses: 
+        "200":
+          description: Mission Logs fetched 
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MissionLog"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Mission Log
+  /missions/logs/{missionlogId}/progress:
+    parameters:
+      - name: missionlogId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The ID of the missionlog
+    get:
+      operationId: getMissionLogProgress
+      summary: Get mission log progress by Id
+      description: to fetch the mission log by id to get progress field
+      responses: 
+        "200": 
+          description: Mission Log progress fetched by id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MissionLog"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Mission Log
+  /missions/logs/export:
+    get:
+      operationId : exportMissionLog
+      summary: Export mission logs
+      description: to export mission logs between two dates.
+      responses: 
+        "200": 
+          description: Mission Log fetched for export 
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MissionLog"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Mission Log
+  /registers:
+    summary: Registers
+    get:
+      operationId : getRegisters
+      summary: Get all Registers
+      description: to get the register data
+      responses: 
+        "200": 
+          description: Register fetched
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Register"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+        "403":
+          $ref: "#/components/responses/ForbiddenError"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
+      tags:
+        - Register
+        
 components:
   responses:
     ForbiddenError:
@@ -1392,29 +1726,14 @@ components:
       properties:
         map:
           $ref: "#/components/schemas/Map"
-          example:
-            _id: "60f0b3b0a3b3c3a5b4a3b3c3"
-            name: "Map 1"
-            isActive: true
-            properties:
-              origin:
-                position:
-                  x: 12.56
-                  y: -4.683
-                  z: 0
-                orientation:
-                  x:
-                  y: 0
-                  z: 0
-                  w: 0
-              width: 450
-              height: 243
-              resolution: 0.05
-              previewUrl: "https://www.anscer.com"
-            createdBy:
-              _id: "60f0b3b0a3b3c3a5b4a3b3c3"
-              name: "Admin"
-              email: "admin@anscer.com"
+        waypoints:
+          type: array
+          items:
+            $ref: "#/components/schemas/Waypoint"
+        zones:
+          type: array
+          items:
+            $ref: "#/components/schemas/Zone"
     NewWaypoint:
       type: object
       required:
@@ -2080,3 +2399,114 @@ components:
           type: string
           format: date-time
           description: The date and time this user was last updated
+    Schedule:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          minLength: 3
+          maxLength: 50
+        startTime:
+          type: string
+          format: date-time  
+        endTime:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum: 
+            - repeat
+            - specific
+     
+        date:
+          type: string
+          format: date-time
+        isActive:
+          type: boolean
+        createdBy:
+          type: object
+          $ref: "#/components/schemas/userShort"
+        updatedBy:
+          type: object
+          $ref: "#/components/schemas/userShort"             
+    Log:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        level:
+          type: number
+        message:
+          type: string
+    MissionLog:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: uuid
+        missionid: 
+          type: object
+          $ref: "#/components/schemas/Mission"
+        status:
+          type: string
+          enum:
+            - pending
+            - active
+            - success
+            - aborted
+            - cancelled
+        completedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        completionpercentage:
+          type: number
+          minimum: 0
+          maximum: 100
+        message:
+          type: string
+        progress:
+          type: object
+          $ref: "#/components/schemas/Missiontask"
+        initiatedBy:
+          type: object
+          $ref: "#/components/schemas/userShort"
+    Missiontask:
+      type: object
+      properties:
+        state:
+          type: string
+        completedAt:
+          type: string
+          format: date-time
+        startedAt:
+          type: string
+          format: date-time
+        message:
+          type: string
+        completionpercentage:
+          type: number
+    Register:
+      type: object
+      properties:
+        Id:
+          type: number
+        Type:
+          type: string
+          enum:
+            - INT
+            - REAL
+        Function: 
+          type: string
+          enum:
+            - Read
+            - Write
+            
